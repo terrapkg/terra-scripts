@@ -5,7 +5,7 @@
 
 set SATM subatomic-cli
 
-set FILTER nim-nighlty-0
+set FILTER terra-gnome-shell-extension-pop-shell
 
 set DRY_RUN 0
 

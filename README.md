@@ -9,6 +9,12 @@ These scripts are meant to be edited (at the moment) to fit the specific argumen
 
 Also note that these scripts are in Fish shell. Because I like using Fish. That's it.
 
+## Usage
+
+1. Get a Subatomic token
+2. Create a Subatomic config file in `~/.config/subatomic.json` with the token and API endpoint
+3. Run the script.
+
 ## Scripts
 
 - `satm-grepdel.fish` - Deletes all package specs that match a certain grep pattern from multiple repositories.
