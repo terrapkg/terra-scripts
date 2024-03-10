@@ -5,8 +5,6 @@ Quick scripts for batch-processing of packages in Subatomic repositories.
 Now that we have hundreds of packages in Subatomic, and sometimes manual intervention is required to please the repology gods,
 I needed a way to batch-process packages to clean up the mess once in a while.
 
-These scripts are meant to be edited (at the moment) to fit the specific arguments. I might allow for custom settings in the future.
-
 Also note that these scripts are in Fish shell. Because I like using Fish. That's it.
 
 ## Usage
@@ -19,4 +17,4 @@ Also note that these scripts are in Fish shell. Because I like using Fish. That'
 
 - `satm-grepdel.fish` - Deletes all package specs that match a certain grep pattern from multiple repositories.
   Works by iterating through each repository, listing all the packages and grepping for the pattern, Then pipes
-  that to another function that iterates through all those packages and deletes them.
+  that to another function that iterates through all those packages and deletes them. Takes in a pattern as an argument.

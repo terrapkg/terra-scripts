@@ -5,9 +5,9 @@
 
 set SATM subatomic-cli
 
-set FILTER terra-gnome-shell-extension-pop-shell
+set FILTER $argv[1]
 
-set DRY_RUN 0
+set DRY_RUN 1
 
 # Array of repos
 
