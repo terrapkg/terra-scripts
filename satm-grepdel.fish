@@ -1,6 +1,7 @@
 #!/usr/bin/fish
-# Script to batch delete all packages matching a certain pattern from a set of repos
+# Script to batch delete all packages matching a certain exact pattern from a set of repos
 # in Subatomic repo manager
+# usage: satm-grepdel.fish "pattern"
 # set fish_trace 1
 
 set SATM subatomic-cli
