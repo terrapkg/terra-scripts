@@ -16,6 +16,16 @@ SATM=subatomic-cli
 
 REPO=$1
 
+
+usage() {
+    echo "Usage: cat packages.txt | $0 <repo>"
+    exit 1
+}
+
+if [ -z "$REPO" ]; then
+    usage
+fi
+
 while read PACKAGE
 do
     echo "Deleting spec $PACKAGE from $REPO"
