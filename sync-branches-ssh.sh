@@ -7,13 +7,17 @@
 
 # WARNING: This version of the script clones over SSH.
 
+if [[ "$3" == "-x" ]]; then
+  set -x
+fi
+
 NAME="$1"
 BRANCH="$2"
 WORKDIR="$HOME/git/terra"
 SYNC="sync-$BRANCH"
 SYNCBRANCH="$NAME/chore/$SYNC"
 SYNCDIR="$WORKDIR/frawhide-sync"
-CLONE="git clone --recurse-submodules -j$(nproc) git@github.com:terrapkg/packages.git -b $BRANCH $SYNC"
+CLONE="git clone --recurse-submodules -j$(nproc) https://github.com/terrapkg/packages.git -b $BRANCH $SYNC"
 
 function clean_files() {
 for file in $(rg updbranch --files-with-matches --glob '!backup/'); do
@@ -25,17 +29,13 @@ mv $DIRNAME backup/$DIR
 done
 for file in $(rg terra\\\\$releasever --files-with-matches --glob '!backup/'); do
 DIRNAME=$(dirname $file)
-BASENAME=$(basename $DIRNAME)
-DIR=$(echo $DIRNAME | sed "s|/$BASENAME||g")
-mkdir -p backup/$DIR
-mv $DIRNAME backup/$DIR
+mkdir -p backup/$DIRNAME
+mv $file -t backup/$DIRNAME
 done
 for file in $(rg fedora\/\\\\$releasever --files-with-matches --glob '!backup/'); do
 DIRNAME=$(dirname $file)
-BASENAME=$(basename $DIRNAME)
-DIR=$(echo $DIRNAME | sed "s|/$BASENAME||g")
-mkdir -p backup/$DIR
-mv $DIRNAME backup/$DIR
+mkdir -p backup/$DIRNAME
+mv $file -t backup/$DIRNAME
 done
 }
 

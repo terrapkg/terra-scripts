@@ -5,6 +5,10 @@
 
 # NOTE: Requires ripgrep
 
+if [[ "$3" == "-x" ]]; then
+  set -x
+fi
+
 NAME="$1"
 BRANCH="$2"
 WORKDIR="$HOME/git/terra"
@@ -23,17 +27,13 @@ mv $DIRNAME backup/$DIR
 done
 for file in $(rg terra\\\\$releasever --files-with-matches --glob '!backup/'); do
 DIRNAME=$(dirname $file)
-BASENAME=$(basename $DIRNAME)
-DIR=$(echo $DIRNAME | sed "s|/$BASENAME||g")
-mkdir -p backup/$DIR
-mv $DIRNAME backup/$DIR
+mkdir -p backup/$DIRNAME
+mv $file -t backup/$DIRNAME
 done
 for file in $(rg fedora\/\\\\$releasever --files-with-matches --glob '!backup/'); do
 DIRNAME=$(dirname $file)
-BASENAME=$(basename $DIRNAME)
-DIR=$(echo $DIRNAME | sed "s|/$BASENAME||g")
-mkdir -p backup/$DIR
-mv $DIRNAME backup/$DIR
+mkdir -p backup/$DIRNAME
+mv $file -t backup/$DIRNAME
 done
 }
 
