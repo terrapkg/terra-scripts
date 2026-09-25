@@ -1,4 +1,6 @@
-# Batch RPM processing scripts for Terra
+# NOTICE - MOVED TO https://github.com/terrapkg/cli-tools
+
+## Batch RPM processing scripts for Terra
 
 Quick scripts for batch-processing of packages in Subatomic repositories.
 
